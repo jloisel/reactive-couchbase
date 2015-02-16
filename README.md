@@ -3,9 +3,9 @@
 Asynchronous couchbase repository using RxJava and Couchbase Java SDK 2.
 
 Pre-requisites:
-Maven
-Java JDK 8
-Lombok (see http://projectlombok.org/)
+- Maven
+- Java JDK 8
+- Lombok (see http://projectlombok.org/)
 
 Observable Couchbase repository made easy:
 ```java
