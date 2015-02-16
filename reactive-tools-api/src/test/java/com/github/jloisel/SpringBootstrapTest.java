@@ -14,7 +14,7 @@ import com.github.jloisel.SpringBootstrap;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = SpringBootstrap.class)
-public class GrinstoneBootstrapTest {
+public class SpringBootstrapTest {
 
   @Autowired
   private TestService service;

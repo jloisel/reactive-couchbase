@@ -1,8 +1,8 @@
 package com.github.jloisel.reactive.repository.couchbase.it;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-import lombok.Value;
 import lombok.Builder;
+import lombok.Value;
 import lombok.experimental.Wither;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -27,5 +27,4 @@ public class Person implements ReactiveEntity {
     this.firstname = checkNotNull(firstname);
     this.lastname = checkNotNull(lastname);
   }
-
 }
