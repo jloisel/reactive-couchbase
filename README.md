@@ -16,7 +16,15 @@ final AsyncRepository<Person> repository = factory.create(Person.class);
 repository.findAll().forEach(person -> System.out.println(person.getFirstname()));
 ```
 
-Person entity:
+As well as sequential repository:
+```java
+final SyncRepositoryFactory factory = ...;
+final SyncRepository<Person> repository = factory.create(Person.class);
+
+final List<Person> persons = repository.findAll();
+```
+
+Person entity using Jackson Json processor:
 ```java
 @Value
 @Builder
@@ -35,6 +43,25 @@ public class Person implements ReactiveEntity {
     this.id = checkNotNull(id);
     this.firstname = checkNotNull(firstname);
     this.lastname = checkNotNull(lastname);
+  }
+}
+```
+
+Spring Configuration:
+```java
+@Configuration
+public class CouchbaseConfig {
+
+  @Bean
+  @Autowired
+  ASyncRepository<Person> asyncPersonRepository(final ASyncRepositoryFactory factory) {
+    return factory.create(Person.class);
+  }
+  
+  @Bean
+  @Autowired
+  SyncRepository<Person> syncPersonRepository(final SyncRepositoryFactory factory) {
+    return factory.create(Person.class);
   }
 }
 ```
