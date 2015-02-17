@@ -1,6 +1,11 @@
 # reactive-couchbase
 
-Asynchronous couchbase repository using RxJava and Couchbase Java SDK 2.
+Spring Data Couchbase is currently using the synchronous Couchbase Java SDK 1.x. Java SDK 2 offers batching which greatly improves the performances:
+http://docs.couchbase.com/developer/java-2.1/documents-bulk.html
+
+But the Java SDK 2.x is pretty low level. It lakes a high level repository like Spring Data, while Spring Data lakes Asynchronous operations on Observables. This Couchbase repository implementation tries to fit both worlds:
+- Asynchronous through RxJava,
+- High level API which is easy to use.
 
 Pre-requisites:
 - Maven
@@ -29,7 +34,6 @@ Person entity using Jackson Json processor:
 @Value
 @Builder
 public class Person implements ReactiveEntity {
-  @Wither
   String id;
   String firstname;
   String lastname;
